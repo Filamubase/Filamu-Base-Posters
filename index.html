@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filamu Base Posters</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Centering the search box */
+        .search-box {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .search-box input {
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Site Name Styling */
+        header h1 {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 36px;
+            margin-top: 20px;
+        }
+
+        /* Styling for posters */
+        .poster {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .poster img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Site Name (Logo) -->
+    <header>
+        <h1>Filamu Base Posters</h1>
+    </header>
+
+    <!-- Search Box -->
+    <section class="search-box">
+        <input type="text" id="searchInput" onkeyup="searchPosters()" placeholder="Search posters by title...">
+    </section>
+
+    <!-- Poster 1: MUFASA -->
+    <div class="poster" id="mufasa">
+        <img src="images/MUFASA.jpg" alt="Mufasa Poster">
+        <h2>MUFASA</h2>
+        <p><strong>Director:</strong> Olivia Johnson</p>
+        <p><strong>Year:</strong> 2024</p>
+        <p class="description">A thrilling prequel about the rise of a legendary ruler and his kingdom's darkest secrets.</p>
+        <a href="images/MUFASA.jpg" download class="download-btn">Download Poster</a>
+    </div>
+
+    <!-- Poster 2: WHIPLASH -->
+    <div class="poster" id="whiplash">
+        <img src="images/WHIPLASH.jpg" alt="Whiplash Poster">
+        <h2>WHIPLASH</h2>
+        <p><strong>Director:</strong> James Carter</p>
+        <p><strong>Year:</strong> 2023</p>
+        <p class="description">An intense drama about a young jazz drummer’s quest for perfection under the guidance of a ruthless teacher.</p>
+        <a href="images/WHIPLASH.jpg" download class="download-btn">Download Poster</a>
+    </div>
+
+    <!-- Poster 3: SNOW WHITE -->
+    <div class="poster" id="snowwhite">
+        <img src="images/SNOW WHITE.jpg" alt="Snow White Poster">
+        <h2>SNOW WHITE</h2>
+        <p><strong>Director:</strong> Emily Brown</p>
+        <p><strong>Year:</strong> 2025</p>
+        <p class="description">A reimagined classic where Snow White embarks on a journey to reclaim her rightful place in the kingdom.</p>
+        <a href="images/SNOW WHITE.jpg" download class="download-btn">Download Poster</a>
+    </div>
+
+    <script>
+        // Search Functionality
+        function searchPosters() {
+            let input = document.getElementById('searchInput').value.toUpperCase();
+            let posters = document.getElementsByClassName('poster');
+
+            for (let i = 0; i < posters.length; i++) {
+                let title = posters[i].getElementsByTagName('h2')[0];
+                if (title.innerHTML.toUpperCase().indexOf(input) > -1) {
+                    posters[i].style.display = '';
+                } else {
+                    posters[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
